@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui_driver.GUI_FXMLController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="120.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0" prefWidth="131.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="140.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="0.0" prefWidth="14.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="201.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.0" minWidth="10.0" prefWidth="91.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="218.0" minWidth="10.0" prefWidth="89.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="58.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="267.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="267.0" minHeight="6.0" prefHeight="6.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="348.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="348.0" minHeight="0.0" prefHeight="36.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="582.0" minHeight="0.0" prefHeight="7.000024414062494" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="459.0" minHeight="0.0" prefHeight="32.19999999999999" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="582.0" minHeight="6.000006103515631" prefHeight="7.79998779296875" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="582.0" minHeight="10.0" prefHeight="41.40001220703124" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="582.0" minHeight="2.5999999999999943" prefHeight="8.199999999999989" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="459.0" minHeight="10.0" prefHeight="32.20000000000002" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="682.0" minHeight="10.0" prefHeight="359.80000610351556" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <TextField fx:id="MeanTextDisplay" prefHeight="69.0" prefWidth="116.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <TextField fx:id="MedianTextDisplay" prefHeight="69.0" prefWidth="116.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <TextField fx:id="VarianceTextDisplay" prefHeight="71.0" prefWidth="116.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <TextField fx:id="STDTextDisplay" prefHeight="70.0" prefWidth="116.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Button fx:id="CalculateStatsButton" mnemonicParsing="false" onAction="#StatsButtonClicked" prefHeight="98.0" prefWidth="155.0" text="Calculate Statistics" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.rowSpan="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <TextField fx:id="FileLocationDisplay" prefHeight="44.0" prefWidth="701.0" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Button fx:id="FileLocatorButton" mnemonicParsing="false" onAction="#FileLocatorClicked" prefHeight="27.0" prefWidth="153.0" text="Locate Data File" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <ComboBox fx:id="BinMethodSelection" prefHeight="25.0" prefWidth="671.0" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Button fx:id="PlotButton" mnemonicParsing="false" onAction="#PlotButtonClicked" prefHeight="47.0" prefWidth="152.0" text="Plot" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <BarChart fx:id="BarChartMap" title="Bar Chart" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <xAxis>
+          <CategoryAxis label="Histogram Bins" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Normalised Counts" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Label prefHeight="17.0" prefWidth="607.0" text="Find the measurement data file file browser" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Label text="Functional Buttons" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Label text="Mean: " GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Label text="Median: " GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+      <Label text="Variance:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Label text="Std Deviation:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <TextField fx:id="BinNumTextBox" prefHeight="37.0" prefWidth="130.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <TextField fx:id="CoefTextBox" prefHeight="38.0" prefWidth="202.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <TextField fx:id="CentreTextBox" prefHeight="32.0" prefWidth="130.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <TextField fx:id="WidthTextBox" prefHeight="34.0" prefWidth="202.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Label text="Bin Num:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Label text="PDF Coef::" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Label text="PDF Centre:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Label text="PDF Width:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Button fx:id="SaveButton" mnemonicParsing="false" onAction="#SaveButtonClicked" prefHeight="26.0" prefWidth="150.0" text="Save Figures" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <LineChart fx:id="LineChart" prefHeight="358.0" prefWidth="329.0" title="PDF Chart" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <xAxis>
+          <CategoryAxis label="X axis" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="PDF" side="LEFT" />
+        </yAxis>
+      </LineChart>
+   </children>
+</GridPane>
